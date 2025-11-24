@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Mia–667174866" />
+<meta name="author" content="Pavlina–667753859" />
+
+<meta name="date" content="2025-10-15" />
+
+<title>Business Insights Report</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Business Insights Report</h1>
+<h3 class="subtitle">Data Visualization and Communication</h3>
+<h4 class="author">Mia–667174866</h4>
+<h4 class="author">Pavlina–667753859</h4>
+<h4 class="date">2025-10-15</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#executive-summary" id="toc-executive-summary">Executive
+Summary</a>
+<ul>
+<li><a href="#question-1-data-preparation-and-initial-analysis"
+id="toc-question-1-data-preparation-and-initial-analysis">Question 1:
+Data Preparation and Initial Analysis</a></li>
+<li><a href="#creating-professional-charts"
+id="toc-creating-professional-charts">2 Creating Professional
+Charts</a></li>
+<li><a href="#action-plan" id="toc-action-plan">3 Action Plan</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="executive-summary" class="section level1">
+<h1>Executive Summary</h1>
+<p>This report analyzes the e-commerce company’s quarterly performance
+data. Insights include the highest performing sales channels, average
+customer trends per quarter, and revenue efficiency per customer.
+Visualizations reveal which channels drive the most revenue and convert
+customers efficiently. Based on these analyses, strategic
+recommendations prioritize investment in high-performing channels to
+maximize revenue and profitability. Specifically, the online channel
+generates the highest total revenue ($5,571,130), while Retail achieves
+the highest revenue per customer ($314.22), which highlights which
+channels are clearly more profitable overall and per customer.</p>
+<div id="question-1-data-preparation-and-initial-analysis"
+class="section level2">
+<h2>Question 1: Data Preparation and Initial Analysis</h2>
+<div id="a-load-and-explore-the-data" class="section level3">
+<h3>a) Load and Explore the Data</h3>
+<pre class="r"><code># Load ggplot2
+library(ggplot2)
+
+# Load the business dataset
+business_data &lt;- read.csv(&quot;business_performance.csv&quot;)
+
+# Inspect structure and summary
+str(business_data)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    48 obs. of  7 variables:
+##  $ quarter        : chr  &quot;Q1&quot; &quot;Q2&quot; &quot;Q3&quot; &quot;Q4&quot; ...
+##  $ channel        : chr  &quot;Online&quot; &quot;Online&quot; &quot;Online&quot; &quot;Online&quot; ...
+##  $ year           : int  2023 2023 2023 2023 2023 2023 2023 2023 2023 2023 ...
+##  $ revenue        : int  314019 288825 296739 287699 351721 324090 348699 328609 368558 362724 ...
+##  $ customers      : int  1200 1340 1405 1241 1441 1647 1650 1556 1524 1690 ...
+##  $ conversion_rate: num  3.9 3.4 2.9 3.6 NA 3.8 3.4 3.7 4.3 3.6 ...
+##  $ region         : chr  &quot;North&quot; &quot;South&quot; &quot;East&quot; &quot;West&quot; ...</code></pre>
+<pre class="r"><code>summary(business_data)</code></pre>
+<pre><code>##    quarter            channel               year         revenue      
+##  Length:48          Length:48          Min.   :2023   Min.   :150231  
+##  Class :character   Class :character   1st Qu.:2023   1st Qu.:177597  
+##  Mode  :character   Mode  :character   Median :2024   Median :263544  
+##                                        Mean   :2024   Mean   :258796  
+##                                        3rd Qu.:2024   3rd Qu.:324372  
+##                                        Max.   :2024   Max.   :412125  
+##                                                                       
+##    customers    conversion_rate    region         
+##  Min.   : 433   Min.   :2.300   Length:48         
+##  1st Qu.: 600   1st Qu.:3.100   Class :character  
+##  Median :1223   Median :3.700   Mode  :character  
+##  Mean   :1127   Mean   :3.849                     
+##  3rd Qu.:1526   3rd Qu.:4.400                     
+##  Max.   :1861   Max.   :6.400                     
+##                 NA&#39;s   :3</code></pre>
+<p>Answer (a) : From the output, both quarter and channel are stored as
+character variables. This means that they represent text data rather
+than numeric values. The revenue variable ranges from a minimum of
+150,231 to a maximum of 412,125, indicating the lowest and highest
+revenue values recorded in the dataset.</p>
+</div>
+<div id="b-calculate-total-revenue-by-channel" class="section level3">
+<h3>b) calculate total revenue by channel</h3>
+<pre class="r"><code>aggregate(revenue ~ channel, 
+          data = business_data,
+          FUN = sum
+          )</code></pre>
+<pre><code>##   channel revenue
+## 1  Mobile 4158056
+## 2  Online 5571130
+## 3  Retail 2693023</code></pre>
+<pre class="r"><code>aggregate(customers ~ quarter,
+           data = business_data,
+           FUN = mean
+           )</code></pre>
+<pre><code>##   quarter customers
+## 1      Q1  1069.000
+## 2      Q2  1153.583
+## 3      Q3  1172.917
+## 4      Q4  1110.750</code></pre>
+<p>Answer (b) : Based on aggregated results, the Online channel
+generates the highest total revenue overall, with the total of
+5,571,130, which is followed by Mobile and Retail. When seeking out the
+average number of customers by quarter, Quarter 3 (Q3) has the most
+customers on average at approximately 1,172.9, indicating that this is
+in fact its busiest quarter.</p>
+</div>
+<div id="c" class="section level3">
+<h3>c)</h3>
+<pre class="r"><code>business_data$revenue_per_customer &lt;- business_data$revenue / business_data$customers
+
+aggregate(revenue_per_customer ~ channel , data = business_data , mean,  na.rm = TRUE )</code></pre>
+<pre><code>##   channel revenue_per_customer
+## 1  Mobile             202.8074
+## 2  Online             224.3320
+## 3  Retail             314.2239</code></pre>
+<p>Answer (c) : After calculating the revenue per customer and then
+averaging that number by channel, the Retail channel has the highest
+average revenue per customer at approx. $314.22. What this suggests is
+that although Retail may generate less total revenue than Online, each
+individual customer in the Retail channel tends to spend more on an
+average, which indicates higher-value transactions per customer.</p>
+</div>
+</div>
+<div id="creating-professional-charts" class="section level2">
+<h2>2 Creating Professional Charts</h2>
+<div id="a" class="section level3">
+<h3>a)</h3>
+<pre class="r"><code># Calculate totals first
+channel_totals &lt;- aggregate(revenue ~ channel, data = business_data, sum)
+# Then create the chart
+ggplot(channel_totals, aes(x = channel, y = revenue)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  labs(title = &quot;Total Revenue by Channel&quot;, 
+       x = &quot;Sales Channel&quot;, y = &quot;Revenue ($)&quot;)</code></pre>
+<p><img src="test3findings_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Answer (a) : Based on the bar chart showing total revenue by channel,
+the Online channel generates the highest overall revenue. This makes it
+apparent that the company should in fact consider allocating more
+investment into the Online channel, because of the fact that it appears
+to be the strongest performer, clearly offering the greatest potential
+for continued profitability and overall growth.</p>
+</div>
+<div id="b" class="section level3">
+<h3>b)</h3>
+<pre class="r"><code>ggplot(business_data, aes(x = customers, y = revenue, color = channel)) +
+  geom_point(size = 3) +
+  labs(title = &quot;Customer Count vs Revenue by Channel&quot;,
+       x = &quot;Number of Customers&quot;, y = &quot;Revenue ($)&quot;)</code></pre>
+<p><img src="test3findings_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Answer (b) : Based on the visualization output, the Retail channel
+appears to be the most eficient at converting customers into revenue.
+Although it has FEWEST customers, it still generates relatively high
+amounts of revenue compared to the other channels. What this suggests is
+that Retail produces more revenue per customer on average, indicating
+overall stronger efficiency in driving higher sales from a smaller
+customer base.</p>
+</div>
+</div>
+<div id="action-plan" class="section level2">
+<h2>3 Action Plan</h2>
+<div id="a-1" class="section level3">
+<h3>a)</h3>
+<pre class="r"><code># Load knitr for clean tables
+library(knitr)
+
+# 1) Total revenue by channel
+totals &lt;- aggregate(revenue ~ channel, data = business_data, sum)
+
+# 2) Average customers by channel
+avg_customers &lt;- aggregate(customers ~ channel, data = business_data, FUN = mean, na.rm = TRUE)
+
+# 3) Average revenue per customer
+business_data$revenue_per_customer &lt;- business_data$revenue / business_data$customers
+avg_rpc &lt;- aggregate(revenue_per_customer ~ channel, data = business_data, FUN = mean, na.rm = TRUE)
+
+# 4) Average conversion rate by channel
+avg_conversion &lt;- aggregate(conversion_rate ~ channel, data = business_data, FUN = mean, na.rm = TRUE)
+
+# 5) Merge all metrics into a single table
+summary_table &lt;- merge(totals, avg_customers, by = &quot;channel&quot;)
+summary_table &lt;- merge(summary_table, avg_rpc, by = &quot;channel&quot;)
+summary_table &lt;- merge(summary_table, avg_conversion, by = &quot;channel&quot;)
+
+# 6) Rename columns for presentation
+colnames(summary_table) &lt;- c(&quot;Channel&quot;, &quot;Total Revenue&quot;, &quot;Average Customers&quot;, 
+                             &quot;Average Revenue per Customer&quot;, &quot;Average Conversion Rate&quot;)
+
+# 7) Display a professional table in R Markdown
+kable(summary_table, digits = 2, caption = &quot;Summary of Key Metrics by Channel&quot;)</code></pre>
+<table>
+<caption>Summary of Key Metrics by Channel</caption>
+<colgroup>
+<col width="8%" />
+<col width="15%" />
+<col width="19%" />
+<col width="31%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Channel</th>
+<th align="right">Total Revenue</th>
+<th align="right">Average Customers</th>
+<th align="right">Average Revenue per Customer</th>
+<th align="right">Average Conversion Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mobile</td>
+<td align="right">4158056</td>
+<td align="right">1278.06</td>
+<td align="right">202.81</td>
+<td align="right">2.88</td>
+</tr>
+<tr class="even">
+<td align="left">Online</td>
+<td align="right">5571130</td>
+<td align="right">1559.56</td>
+<td align="right">224.33</td>
+<td align="right">3.64</td>
+</tr>
+<tr class="odd">
+<td align="left">Retail</td>
+<td align="right">2693023</td>
+<td align="right">542.06</td>
+<td align="right">314.22</td>
+<td align="right">5.03</td>
+</tr>
+</tbody>
+</table>
+<p>Answer 3 (b) :</p>
+<p>Invest additional resources in the Online channel, which is what
+generates the highest total revenue of $5,571,130 and expands the
+largest customer base (1,559.56 customers on average). While Retail
+achieves the highest revenue per customer ($314.22), its smaller
+audience limits impact overall. Prioritizing Online marketing, customer
+experience, technology enhancements, and retention initiatives will
+maximize overall revenue growth and profitability in the long-term while
+maintaining overall efficiency in customer acquisition across all of the
+channels.</p>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
