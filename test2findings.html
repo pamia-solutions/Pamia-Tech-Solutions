@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Mia–667174866" />
+<meta name="author" content="Pavlina–667753859" />
+
+<meta name="date" content="2025-10-05" />
+
+<title>Business Data Analysis Report - Test 2 - E-management</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Business Data Analysis Report - Test 2 -
+E-management</h1>
+<h3 class="subtitle">CSV Import and Data Cleaning</h3>
+<h4 class="author">Mia–667174866</h4>
+<h4 class="author">Pavlina–667753859</h4>
+<h4 class="date">2025-10-05</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#create-sample-regional-sales-data"
+id="toc-create-sample-regional-sales-data"><span
+class="toc-section-number">1</span> Create sample regional sales
+data</a></li>
+</ul>
+</div>
+
+<div id="create-sample-regional-sales-data" class="section level1"
+number="1">
+<h1><span class="header-section-number">1</span> Create sample regional
+sales data</h1>
+<p>Question 1: CSV Import and Basic Exploration</p>
+<pre class="r"><code>regional_sales &lt;- data.frame(
+  region = c(&quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;, &quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;,
+             &quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;, &quot;North&quot;, &quot;South&quot;, &quot;East&quot;, 
+             &quot;North&quot;, &quot;South&quot;,&quot;North&quot;),  
+  quarter = c(rep(c(&quot;Q1&quot;, &quot;Q2&quot;, &quot;Q3&quot;, &quot;Q4&quot;), each = 4), &quot;Q4&quot;, &quot;Q4&quot;),
+  revenue = c(125000, 98000, 115000, 102000, 
+              138000, 105000, 128000, 118000,
+              142000, 89000, 135000, 125000,
+              155000, 112000, 148000, 165000, 
+              120000, 91250),
+  customers = c(450, 380, 420, 395, 
+                485, 415, 465, 445,
+                520, 350, 485, 470,
+                575, 425, 545, 590, 435,324)
+)</code></pre>
+<p>Question 1 (a) : The dataset has 18 observations and 4 variables. The
+variable types are: region and quarter are character, while revenue and
+customers are numeric</p>
+<pre class="r"><code># Examine structure
+str(regional_sales)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    18 obs. of  4 variables:
+##  $ region   : chr  &quot;North&quot; &quot;South&quot; &quot;East&quot; &quot;West&quot; ...
+##  $ quarter  : chr  &quot;Q1&quot; &quot;Q1&quot; &quot;Q1&quot; &quot;Q1&quot; ...
+##  $ revenue  : num  125000 98000 115000 102000 138000 105000 128000 118000 142000 89000 ...
+##  $ customers: num  450 380 420 395 485 415 465 445 520 350 ...</code></pre>
+<p>Question 1 (B): Based on the head and summary outputs, the first few
+rows of the dataset show the regions North, South, East, and West,
+appearing in that order in Q1, with North and South appearing again in
+Q2. The summary shows that revenue ranges from a minimum of $89,000 to a
+maximum of $165,000, indicating the lowest and highest quarterly sales
+values across all regions.</p>
+<pre class="r"><code># Preview first few rows
+head(regional_sales)</code></pre>
+<pre><code>##   region quarter revenue customers
+## 1  North      Q1  125000       450
+## 2  South      Q1   98000       380
+## 3   East      Q1  115000       420
+## 4   West      Q1  102000       395
+## 5  North      Q2  138000       485
+## 6  South      Q2  105000       415</code></pre>
+<pre class="r"><code># Summary statistics
+summary(regional_sales)</code></pre>
+<pre><code>##     region            quarter             revenue         customers    
+##  Length:18          Length:18          Min.   : 89000   Min.   :324.0  
+##  Class :character   Class :character   1st Qu.:106750   1st Qu.:416.2  
+##  Mode  :character   Mode  :character   Median :122500   Median :447.5  
+##                                        Mean   :122847   Mean   :454.1  
+##                                        3rd Qu.:137250   3rd Qu.:485.0  
+##                                        Max.   :165000   Max.   :590.0</code></pre>
+<p>Question 1 (C): The dataset contains 4 unique regions: North, South,
+East, and West, and 4 unique quarters: Quarter Q1, Q2, Q3, Q4.</p>
+<pre class="r"><code># Unique regions and quarters
+unique(regional_sales$region)</code></pre>
+<pre><code>## [1] &quot;North&quot; &quot;South&quot; &quot;East&quot;  &quot;West&quot;</code></pre>
+<pre class="r"><code>unique(regional_sales$quarter)</code></pre>
+<pre><code>## [1] &quot;Q1&quot; &quot;Q2&quot; &quot;Q3&quot; &quot;Q4&quot;</code></pre>
+<p>Question 1 (D): The total number of customers across all regions and
+quarters is 8,174. This indicates the overall customer reach and
+engagement of the business for the period, helping assess market size
+and inform sales and marketing strategies.</p>
+<pre class="r"><code># Total number of customers
+total_customers &lt;- sum(regional_sales$customers)
+total_customers</code></pre>
+<pre><code>## [1] 8174</code></pre>
+<p>Question 2: Data Quality Assessment</p>
+<p>Question 2(A): There are no missing values in the data set. Checking
+for missing data is important in real life business scenarios because
+missing values can lead to inaccurate calculations, poor
+decision-making, and insights that can be very misleading.</p>
+<pre class="r"><code># Check for missing values
+sum(is.na(regional_sales))</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>Question 2(B): The data shown are clearly not distributed evenly
+across the regions. West only has 3 and North has 6 records. The
+quarters are also slightly uneven (Q4 has 6 records, and the others have
+4). What this evidence is suggesting is that some regions report more
+often or some of the quarters are overly represented. This may affect
+both decision-making for users and may also affect trend analysis.</p>
+<pre class="r"><code># Frequency table for region
+table(regional_sales$region)</code></pre>
+<pre><code>## 
+##  East North South  West 
+##     4     6     5     3</code></pre>
+<pre class="r"><code># Frequency table for quarter
+table(regional_sales$quarter)</code></pre>
+<pre><code>## 
+## Q1 Q2 Q3 Q4 
+##  4  4  4  6</code></pre>
+<p>Question 2(C): Only the South region in Quarter 3 has revenue below
+$90,000. This evidence is showing a potential performance concern that
+indicates that this quarter/region may need investigation or attention
+into operational issues or sales.</p>
+<pre class="r"><code># Filter records with revenue less than 90000
+regional_sales[regional_sales$revenue &lt; 90000, ]</code></pre>
+<pre><code>##    region quarter revenue customers
+## 10  South      Q3   89000       350</code></pre>
+<p>Question 3: Using Logical Operators for Business Questions</p>
+<p>Question 3(A): 4 high-performance records were found. The East and
+North regions achieved strong results in Q3 and Q4, which showed
+excellent sales during the later quarters.</p>
+<pre class="r"><code># Records with revenue greater than 140,000
+high_perf &lt;- regional_sales[regional_sales$revenue &gt; 140000, ]
+high_perf</code></pre>
+<pre><code>##    region quarter revenue customers
+## 9   North      Q3  142000       520
+## 13  North      Q4  155000       575
+## 15   East      Q4  148000       545
+## 16  North      Q4  165000       590</code></pre>
+<pre class="r"><code># Count how many high-performance records
+nrow(high_perf)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Question 3(B): Three Q4 records (Mainly from East and North) meet
+both conditions. What this specifically suggests is strong year-end
+performance, which is most likely due to successful sale campaigns or
+seasonal demand.</p>
+<pre class="r"><code># Filter for high Q4 revenue and customers
+q4_high &lt;- regional_sales[regional_sales$quarter == &quot;Q4&quot; &amp; regional_sales$revenue &gt; 130000 &amp; regional_sales$customers &gt; 500, ]
+q4_high</code></pre>
+<pre><code>##    region quarter revenue customers
+## 13  North      Q4  155000       575
+## 15   East      Q4  148000       545
+## 16  North      Q4  165000       590</code></pre>
+<p>Question 3(C): The average revenue for the North and East regions is
+$134,225, which is higher than the average overall of $122,847.22. What
+this presents is that these two regions are performing above the
+company’s overall revenue level which highlights them as the two
+strongest markets.</p>
+<pre class="r"><code># Filter for North or East regions
+north_east &lt;- regional_sales[regional_sales$region == &quot;North&quot; | regional_sales$region == &quot;East&quot;, ]
+north_east</code></pre>
+<pre><code>##    region quarter revenue customers
+## 1   North      Q1  125000       450
+## 3    East      Q1  115000       420
+## 5   North      Q2  138000       485
+## 7    East      Q2  128000       465
+## 9   North      Q3  142000       520
+## 11   East      Q3  135000       485
+## 13  North      Q4  155000       575
+## 15   East      Q4  148000       545
+## 16  North      Q4  165000       590
+## 18  North      Q4   91250       324</code></pre>
+<pre class="r"><code># Average revenue for North and East
+mean_north_east &lt;- mean(north_east$revenue)
+
+# Compare with overall average
+mean_overall &lt;- mean(regional_sales$revenue)
+
+mean_north_east</code></pre>
+<pre><code>## [1] 134225</code></pre>
+<pre class="r"><code>mean_overall</code></pre>
+<pre><code>## [1] 122847.2</code></pre>
+<p>Question 3(D): There are 4 records that represent 22.2% of total
+records. These include South (Q1,Q3), West (Q1), and North (Q4). This
+indicates potential performance issues in those quarters and regions,
+suggesting business may need to investigate the possible causes of this
+or strengthen marketing and sales efforts in these areas.</p>
+<pre class="r"><code># Create flag for concerning performance
+low_perf &lt;- regional_sales[regional_sales$revenue &lt; 100000 | regional_sales$customers &lt; 400, ]
+low_perf</code></pre>
+<pre><code>##    region quarter revenue customers
+## 2   South      Q1   98000       380
+## 4    West      Q1  102000       395
+## 10  South      Q3   89000       350
+## 18  North      Q4   91250       324</code></pre>
+<pre class="r"><code># Count and percentage
+count_low &lt;- nrow(low_perf)
+percent_low &lt;- (count_low / nrow(regional_sales)) * 100
+count_low</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>percent_low</code></pre>
+<pre><code>## [1] 22.22222</code></pre>
+<p>Question 4: Creating Business Summaries</p>
+<p>Question 4(A): The North region generated the highest total revenue
+at $816,250, which makes it the company’s top-performing region across
+all quarters. This suggests strong sales performance as well as overall
+customer engagement in the North region in comparison to all of the
+other regions.</p>
+<pre class="r"><code># Total revenue by region
+total_revenue_region &lt;- aggregate(revenue ~ region, data = regional_sales, sum)
+total_revenue_region</code></pre>
+<pre><code>##   region revenue
+## 1   East  526000
+## 2  North  816250
+## 3  South  524000
+## 4   West  345000</code></pre>
+<p>Question 4(B): Quarter 4 (Q4) has the highest average customer count
+at 482.33. What this indicates is likely that stronger sales during the
+year-end period, possibly due to holiday promotions, seasonal demand,
+and increased consumer spending which promotes higher amounts of
+customer activity.</p>
+<pre class="r"><code># Average customers by quarter
+avg_customers_quarter &lt;- aggregate(customers ~ quarter, data = regional_sales, mean)
+avg_customers_quarter</code></pre>
+<pre><code>##   quarter customers
+## 1      Q1  411.2500
+## 2      Q2  452.5000
+## 3      Q3  456.2500
+## 4      Q4  482.3333</code></pre>
+<p>Question 5: Executive Summary Creation</p>
+<p>Question 5(A): The company achieved a total revenue of $2,211,250
+across all regions and quarters. The average revenue per quarter ranges
+from $110,000 in Q1 to $131,875 in Q4, showing that Q4 is the strongest
+quarter. There are 4 high performance records (revenue &gt; $140,000),
+which indicates periods of exceptional sales.</p>
+<pre class="r"><code># Total revenue across all regions and quarters
+total_revenue &lt;- sum(regional_sales$revenue)
+total_revenue</code></pre>
+<pre><code>## [1] 2211250</code></pre>
+<pre class="r"><code># Average revenue per quarter
+avg_revenue_quarter &lt;- aggregate(revenue ~ quarter, data = regional_sales, mean)
+avg_revenue_quarter</code></pre>
+<pre><code>##   quarter revenue
+## 1      Q1  110000
+## 2      Q2  122250
+## 3      Q3  122750
+## 4      Q4  131875</code></pre>
+<pre class="r"><code># Number of high-performance records (revenue &gt; $140,000)
+high_perf_records &lt;- regional_sales[regional_sales$revenue &gt; 140000, ]
+n_high_perf &lt;- nrow(high_perf_records)
+n_high_perf</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Question 5(B): The north region clearly shows the most consistent
+strong performance across multiple quarters, while Q4 has been typically
+known to show the highest customer engagement and revenue. This suggests
+clearly that year-end promotions or seasonal demand drive the strongest
+results. Advice for the company is that it should focus on maintaining
+North region performance and consider strategies from quarter 4 to boost
+sales in other quarters in order to obtain a more evenly balanced annual
+growth.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
