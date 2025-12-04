@@ -1,0 +1,28 @@
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Projects
+
+## Project 1: Test 2 - Business Data Analysis
+In this project, we analyzed regional sales data to assess business performance across four regions (North, South, East, West) and four quarters (Q1–Q4). The project involved CSV import, data cleaning, and exploration using R. Key insights included identifying the North region as the top-performing region, Q4 as the strongest quarter for customer engagement, and high- and low-performance records to inform potential business actions.
+
+**Skills demonstrated:** Data import and cleaning in R, Exploratory data analysis (summary statistics, filtering, aggregation), logical operators for business questions, creating executive summaries and actionable insights  
+[View detailed analysis →](test2findings.html)
+
+
+## Project 2: Test 3 - Business Insights Report
+This project analyzed an e-commerce company’s quarterly performance data to uncover key business insights. I used R to clean, explore, and visualize data, identifying top-performing sales channels and customer trends. Visualizations included bar charts for total revenue by channel and scatterplots showing customer count versus revenue, highlighting which channels convert customers most efficiently. Based on findings, the report provided actionable recommendations, such as prioritizing investment in the Online channel while leveraging Retail’s higher revenue per customer.
+
+**Key skills demonstrated:** Data import, cleaning, and exploration in R, aggregation and calculation of business metrics (revenue per customer, conversion rate),data visualization using `ggplot2`, communicating actionable insights through charts, tables, and executive summary, translating analysis into strategic recommendations.
+[View detailed analysis →](test3findings.html)
+---
+
+# Reflection
+
+Through these projects, we learned to clean, explore, and analyze business data in R and present insights effectively with charts and tables, discovering how visualizations can reveal trends and highlight top-performing channels. A key challenge was managing file paths and ensuring datasets and plots displayed correctly in R Markdown, which we solved by organizing files carefully, testing code in chunks, and configuring _site.yml for GitHub Pages deployment; We also resolved GitHub Actions authentication issues to publish the site successfully. Collaborating with a partner taught me the importance of dividing tasks, reviewing each other’s work, and maintaining clear communication. We focused on data analysis and visualization, while our  partner verified calculations and interpretations. This process reinforced the value of accuracy, version control, and professional presentation in technical projects.
+
+
+[← Back to Home](index.html)

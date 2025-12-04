@@ -22,7 +22,7 @@ Throughout this portfolio, you'll see analyses covering:
 
 ### Navigate This Portfolio
 
-Use the menu above to:
+Use the menu below to:
 
 - Learn more [about the brand](about.html)
 - Learn more [about us](TeamProfiles.html)

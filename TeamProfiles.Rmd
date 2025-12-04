@@ -1,0 +1,31 @@
+---
+title: "Team Profiles"
+author: "Mia--667174866 Pavlina-- 667753859"
+date: "`11/23/25`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Our Team
+
+Meet the team behind this project.  
+
+## Mia Biga
+**Role:** Problem-Solver & Tech Enthusiast  
+**Expertise:** Mia enjoys tackling complex challenges with her computer skills and analytical thinking. She handled the data analysis, created visualizations, and helped build the structure of our R Markdown website.  Technological knowledge, problem-solving, and analytical thinking. Mia focused on cleaning, analyzing, and visualizing business data.
+
+## Pavlina Hajek
+**Role:** Organizer & Detail-Oriented Coordinator  
+ 
+**Expertise:** Pavlina excels at following detailed processes and keeping everything organized. She double-checked calculations, validated results, and ensured our R Markdown files were clean, structured, and easy to follow. Following precise steps, organizational skills, and attention to detail. 
+
+
+[← Back to Home](index.html)
+
+
+
+
+

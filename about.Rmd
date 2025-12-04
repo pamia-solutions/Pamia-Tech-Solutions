@@ -1,0 +1,71 @@
+
+---
+title: "About the Company - Pamia's Tech Repair & Solutions"
+---
+
+
+**Tagline:** *"We fix it, so you don’t stress it."*
+
+## Our Value Proposition
+
+At Pamia, we provide fast, reliable, and affordable technology repair and support services for individuals and small businesses. From computers and smartphones to software troubleshooting and office tech setups, we ensure your devices run smoothly so you can focus on what matters most.
+
+## Background
+
+We are second-year students at VIU, developing skills 
+in data analysis, business intelligence, and statistical computing.
+
+Pamia is a technology repair and solutions company that helps individuals and small businesses keep their devices running smoothly. We fix computers, smartphones, and other devices, provide software troubleshooting, and offer home and office tech setup services. Our goal is to reduce tech stress and maximize productivity for our customers.
+
+
+## Skills & Tools
+
+
+**Analysis & Problem-Solving:**
+
+
+- R for data analysis and business insights  
+- Data cleaning and transformation  
+- Statistical analysis and interpretation  
+- Technical problem-solving (Mia)  
+- Process organization & workflow management (Pavlina)  
+
+
+
+**Visualization & Reporting:**
+
+- ggplot2 for professional visualizations
+- R Markdown for reproducible reports
+- Data storytelling for business audiences
+
+**Data Sources:**
+
+- CSV file processing
+- Government open data (via APIs)
+- Business performance datasets
+
+## Education
+
+**VIU** - E-Management Program  
+*Expected Graduation: [2027]*
+
+Relevant Coursework:
+
+- Data Analysis for E-Management
+- Business Statistics
+- Information Systems
+
+## Contact
+
+Feel free to connect with us:
+
+- Email:Mia Biga [miabiga123@gmail.com], Pavlina Hajek [pavlinahajek10@icloud.com]
+- Personal Cell: Mia [236]544-8040 , Pavlina [778]269-4150
+- GitHub: [github.com/pamia-solutions](https://github.com/pamia-solutions)
+
+
+---
+
+[← Back to Home](index.html)
+
+---

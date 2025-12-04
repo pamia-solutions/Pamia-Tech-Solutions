@@ -1,0 +1,240 @@
+---
+title: "Business Data Analysis Report - Test 2 - E-management"
+subtitle: "CSV Import and Data Cleaning"
+author:
+  - "Mia--667174866"
+  - "Pavlina--667753859"
+date: "2025-10-05"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Create sample regional sales data
+
+Question 1: CSV Import and Basic Exploration
+
+
+```{r}
+regional_sales <- data.frame(
+  region = c("North", "South", "East", "West", "North", "South", "East", "West",
+             "North", "South", "East", "West", "North", "South", "East", 
+             "North", "South","North"),  
+  quarter = c(rep(c("Q1", "Q2", "Q3", "Q4"), each = 4), "Q4", "Q4"),
+  revenue = c(125000, 98000, 115000, 102000, 
+              138000, 105000, 128000, 118000,
+              142000, 89000, 135000, 125000,
+              155000, 112000, 148000, 165000, 
+              120000, 91250),
+  customers = c(450, 380, 420, 395, 
+                485, 415, 465, 445,
+                520, 350, 485, 470,
+                575, 425, 545, 590, 435,324)
+)
+```
+
+
+Question 1 (a) : 
+The dataset has 18 observations and 4 variables. The variable types are:  region and quarter are character, while revenue and customers are numeric
+
+
+
+
+```{r}
+# Examine structure
+str(regional_sales)
+```
+
+
+
+Question 1 (B): Based on the head and summary outputs, the first few rows of the dataset show the regions North, South, East, and West, appearing in that order in Q1, with North and South appearing again in Q2. The summary shows that revenue ranges from a minimum of $89,000 to a maximum of $165,000, indicating the lowest and highest quarterly sales values across all regions. 
+
+
+ 
+```{r}
+# Preview first few rows
+head(regional_sales)
+```
+
+```{r}
+# Summary statistics
+summary(regional_sales)
+```
+
+
+Question 1 (C): The dataset contains 4 unique regions: North, South, East, and West, and 4 unique quarters: Quarter Q1, Q2, Q3, Q4.
+
+
+```{r}
+# Unique regions and quarters
+unique(regional_sales$region)
+unique(regional_sales$quarter)
+```
+
+
+Question 1 (D): The total number of customers across all regions and quarters is 8,174. This indicates the overall customer reach and engagement of the business for the period, helping assess market size and inform sales and marketing strategies.
+
+
+
+```{r}
+# Total number of customers
+total_customers <- sum(regional_sales$customers)
+total_customers
+```
+
+
+Question 2: Data Quality Assessment 
+
+Question 2(A): There are no missing values in the data set. Checking for missing data is important in real life business scenarios because missing values can lead to inaccurate calculations, poor decision-making, and insights that can be very misleading. 
+
+
+
+```{r}
+# Check for missing values
+sum(is.na(regional_sales))
+```
+
+
+
+
+Question 2(B): The data shown are clearly not distributed evenly across the regions. West only has 3 and North has 6 records. The quarters are also slightly uneven (Q4 has 6 records, and the others have 4). What this evidence is suggesting is that some regions report more often or some of the quarters are overly represented. This may affect both decision-making for users and may also affect trend analysis. 
+
+
+```{r}
+# Frequency table for region
+table(regional_sales$region)
+```
+
+```{r}
+# Frequency table for quarter
+table(regional_sales$quarter)
+```
+
+
+Question 2(C): Only the South region in Quarter 3 has revenue below $90,000. This evidence is showing a potential performance concern that indicates that this quarter/region may need investigation or attention into operational issues or sales. 
+
+
+
+```{r}
+# Filter records with revenue less than 90000
+regional_sales[regional_sales$revenue < 90000, ]
+```
+
+
+
+Question 3: Using Logical Operators for Business Questions
+
+Question 3(A): 4 high-performance records were found. The East and North regions achieved strong results in Q3 and Q4, which showed excellent sales during the later quarters. 
+
+
+```{r}
+# Records with revenue greater than 140,000
+high_perf <- regional_sales[regional_sales$revenue > 140000, ]
+high_perf
+
+# Count how many high-performance records
+nrow(high_perf)
+```
+
+
+
+Question 3(B): Three Q4 records (Mainly from East and North) meet both conditions. What this specifically suggests is strong year-end performance, which is most likely due to successful sale campaigns or seasonal demand. 
+
+
+
+```{r}
+# Filter for high Q4 revenue and customers
+q4_high <- regional_sales[regional_sales$quarter == "Q4" & regional_sales$revenue > 130000 & regional_sales$customers > 500, ]
+q4_high
+```
+
+
+Question 3(C): The average revenue for the North and East regions is $134,225, which is higher than the average overall of $122,847.22. What this presents is that these two regions are performing above the company's overall revenue level which highlights them as the two strongest markets.
+
+
+
+```{r}
+# Filter for North or East regions
+north_east <- regional_sales[regional_sales$region == "North" | regional_sales$region == "East", ]
+north_east
+
+
+
+# Average revenue for North and East
+mean_north_east <- mean(north_east$revenue)
+
+# Compare with overall average
+mean_overall <- mean(regional_sales$revenue)
+
+mean_north_east
+mean_overall
+```
+
+Question 3(D): There are 4 records that represent 22.2% of total records. These include South (Q1,Q3), West (Q1), and North (Q4). This indicates potential performance issues in those quarters and regions, suggesting business may need to investigate the possible causes of this or strengthen marketing and sales efforts in these areas. 
+
+
+```{r}
+# Create flag for concerning performance
+low_perf <- regional_sales[regional_sales$revenue < 100000 | regional_sales$customers < 400, ]
+low_perf
+
+# Count and percentage
+count_low <- nrow(low_perf)
+percent_low <- (count_low / nrow(regional_sales)) * 100
+count_low
+percent_low
+```
+
+Question 4: Creating Business Summaries
+
+
+
+Question 4(A): The North region generated the highest total revenue at $816,250, which makes it the company's top-performing region across all quarters. This suggests strong sales performance as well as overall customer engagement in the North region in comparison to all of the other regions. 
+
+```{r}
+# Total revenue by region
+total_revenue_region <- aggregate(revenue ~ region, data = regional_sales, sum)
+total_revenue_region
+```
+
+Question 4(B): Quarter 4 (Q4) has the highest average customer count at 482.33. What this indicates is likely that stronger sales during the year-end period, possibly due to holiday promotions, seasonal demand, and increased consumer spending which promotes higher amounts of customer activity. 
+
+```{r}
+# Average customers by quarter
+avg_customers_quarter <- aggregate(customers ~ quarter, data = regional_sales, mean)
+avg_customers_quarter
+```
+
+
+
+Question 5: Executive Summary Creation
+
+
+Question 5(A): The company achieved a total revenue of $2,211,250 across all regions and quarters. The average revenue per quarter ranges from $110,000 in Q1 to $131,875 in Q4, showing that Q4 is the strongest quarter. There are 4 high performance records (revenue > $140,000), which indicates periods of exceptional sales. 
+
+```{r}
+# Total revenue across all regions and quarters
+total_revenue <- sum(regional_sales$revenue)
+total_revenue
+```
+
+```{r}
+# Average revenue per quarter
+avg_revenue_quarter <- aggregate(revenue ~ quarter, data = regional_sales, mean)
+avg_revenue_quarter
+```
+
+```{r}
+# Number of high-performance records (revenue > $140,000)
+high_perf_records <- regional_sales[regional_sales$revenue > 140000, ]
+n_high_perf <- nrow(high_perf_records)
+n_high_perf
+```
+
+Question 5(B): The north region clearly shows the most consistent strong performance across multiple quarters, while Q4 has been typically known to show the highest customer engagement and revenue. This suggests clearly that year-end promotions or seasonal demand drive the strongest results. Advice for the company is that it should focus on maintaining North region performance and consider strategies from quarter 4 to boost sales in other quarters in order to obtain a more evenly balanced annual growth. 
